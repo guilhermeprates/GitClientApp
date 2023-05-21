@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.7.1)
+  - Alamofire (5.6.4)
   - PromiseKit (6.18.1):
     - PromiseKit/CorePromise (= 6.18.1)
     - PromiseKit/Foundation (= 6.18.1)
@@ -12,7 +12,7 @@ PODS:
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.5)
+  - Alamofire (= 5.6.4)
   - PromiseKit (~> 6.8)
   - SnapKit (~> 5.6.0)
 
@@ -23,10 +23,10 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
-  Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: a9b3652a2ece41f6e25d03f7e6bd0cda0fe5c530
+PODFILE CHECKSUM: 36a01ea9f3ca15c938d162ec4a897c7e600b3d77
 
 COCOAPODS: 1.12.1

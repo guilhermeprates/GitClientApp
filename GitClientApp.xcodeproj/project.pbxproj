@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -55,6 +55,9 @@
 		795ADC4A2A1ABAFB009675A5 /* GitHubUserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC492A1ABAFB009675A5 /* GitHubUserListViewModel.swift */; };
 		795ADC4B2A1ABAFB009675A5 /* GitHubUserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC492A1ABAFB009675A5 /* GitHubUserListViewModel.swift */; };
 		795ADC4C2A1ABAFB009675A5 /* GitHubUserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC492A1ABAFB009675A5 /* GitHubUserListViewModel.swift */; };
+		795ADC4E2A1AC955009675A5 /* APIRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC4D2A1AC955009675A5 /* APIRequestHandler.swift */; };
+		795ADC4F2A1AC955009675A5 /* APIRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC4D2A1AC955009675A5 /* APIRequestHandler.swift */; };
+		795ADC502A1AC955009675A5 /* APIRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC4D2A1AC955009675A5 /* APIRequestHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,7 @@
 		795ADC3E2A1AB258009675A5 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		795ADC452A1AB4B8009675A5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		795ADC492A1ABAFB009675A5 /* GitHubUserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserListViewModel.swift; sourceTree = "<group>"; };
+		795ADC4D2A1AC955009675A5 /* APIRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestHandler.swift; sourceTree = "<group>"; };
 		93E7294A275A3955808710B8 /* Pods-GitClientApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientApp.debug.xcconfig"; path = "Target Support Files/Pods-GitClientApp/Pods-GitClientApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA79C5FC5A562F85F446DC8F /* Pods_GitClientApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitClientApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5A69CC22F605CF57EAF87F /* Pods-GitClientAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientAppTests.release.xcconfig"; path = "Target Support Files/Pods-GitClientAppTests/Pods-GitClientAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 		795ADC442A1AB474009675A5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				795ADC4D2A1AC955009675A5 /* APIRequestHandler.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 				795ADC242A1A9BA5009675A5 /* MockGitHubAPIService.swift in Sources */,
 				795ADC152A1A9434009675A5 /* GitHubRepository.swift in Sources */,
 				795ADC132A1A92F3009675A5 /* GitHubAPIService.swift in Sources */,
+				795ADC4E2A1AC955009675A5 /* APIRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +558,7 @@
 				795ADC1E2A1A9449009675A5 /* AppDelegate.swift in Sources */,
 				795ADC372A1AAD01009675A5 /* UICollectionViewExtensions.swift in Sources */,
 				795ADC202A1A944C009675A5 /* SceneDelegate.swift in Sources */,
+				795ADC4F2A1AC955009675A5 /* APIRequestHandler.swift in Sources */,
 				795ADC1C2A1A9442009675A5 /* GitHubUserListViewController.swift in Sources */,
 				795ADC3B2A1AB0D1009675A5 /* UIViewControllerExtensions.swift in Sources */,
 				795ADC472A1AB4B8009675A5 /* BaseViewController.swift in Sources */,
@@ -574,6 +581,7 @@
 				795ADC1F2A1A9449009675A5 /* AppDelegate.swift in Sources */,
 				795ADC382A1AAD01009675A5 /* UICollectionViewExtensions.swift in Sources */,
 				795ADC212A1A944C009675A5 /* SceneDelegate.swift in Sources */,
+				795ADC502A1AC955009675A5 /* APIRequestHandler.swift in Sources */,
 				795ADC1D2A1A9443009675A5 /* GitHubUserListViewController.swift in Sources */,
 				795ADC3C2A1AB0D1009675A5 /* UIViewControllerExtensions.swift in Sources */,
 				795ADC482A1AB4B8009675A5 /* BaseViewController.swift in Sources */,
