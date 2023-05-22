@@ -42,6 +42,8 @@ public extension Session {
               print("API Error - Returned JSON: \(String(describing: json))")
             }
             switch response.response?.statusCode {
+            case 404:
+              seal.reject(APIError.dataNotFound)
             case 400:
               seal.reject(APIError.badAPIRequest)
             default:

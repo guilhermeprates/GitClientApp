@@ -21,6 +21,8 @@ class GitHubUserListViewController: BaseViewController {
   override func viewDidLoad() {
     title = "GitHub Users"
     
-    viewModel.fetchGitHubUsers()
+//    viewModel.fetchGitHubUsers()
+    
+    viewModel.fetchGitHubUser(with: "233dasdsa")
   }
 }

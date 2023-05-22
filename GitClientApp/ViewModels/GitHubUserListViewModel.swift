@@ -34,10 +34,8 @@ final class GitHubUserListViewModel {
   func fetchGitHubUsers() {
     isLoading = true
     apiService.fetchUsers().done { users in
-      dump(users)
       self.users = users
     }.catch { error in
-      dump(error)
       self.errorMessage = error.localizedDescription
     }.finally {
       self.isLoading = false
@@ -47,10 +45,8 @@ final class GitHubUserListViewModel {
   func fetchGitHubUser(with login: String) {
     isLoading = true
     apiService.fetchUser(with: login).done { user in
-      dump(user)
       self.users = [ user ]
     }.catch { error in
-      dump(error)
       self.errorMessage = error.localizedDescription
     }.finally {
       self.isLoading = false

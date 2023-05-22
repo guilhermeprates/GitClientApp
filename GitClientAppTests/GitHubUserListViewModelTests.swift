@@ -76,7 +76,7 @@ class GitHubUserListViewModelTests: XCTestCase {
     wait(for: [expectation], timeout: 2)
   }
   
-  func testFetchGitHubUsers_Failure() {
+  func testFetchGitHubUsers_Failure_BadAPIRequest() {
     // Given
     let errorMessage = APIError.badAPIRequest.localizedDescription
     
@@ -103,13 +103,73 @@ class GitHubUserListViewModelTests: XCTestCase {
     wait(for: [expectation], timeout: 2)
   }
   
-  func testFetchGitHubUser_UserFound_Success() {
+  func testFetchGitHubUsers_Failure_NoInternetConnection() {
+    // Given
+    let errorMessage = APIError.noInternetConnection.localizedDescription
+    
+    let mockGitHubUsersPromise = Promise<GitHubUsers> { seal in
+      seal.reject(APIError.noInternetConnection)
+    }
+    
+    self.mockAPIService.mockGitHubUsersPromise = mockGitHubUsersPromise
+  
+    // When
+    viewModel.fetchGitHubUsers()
+    
+    // Then
+    XCTAssertTrue(viewModel.isLoading)
+    
+    // Wait for the API call to finish
+    let expectation = XCTestExpectation(description: "Fetch users")
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      XCTAssertFalse(self.viewModel.isLoading)
+      XCTAssertEqual(self.viewModel.errorMessage, errorMessage)
+      expectation.fulfill()
+    }
+    
+    wait(for: [expectation], timeout: 2)
+  }
+  
+  func testFetchGitHubUsers_Failure_Unknown() {
+    // Given
+    let errorMessage = APIError.unknown.localizedDescription
+    
+    let mockGitHubUsersPromise = Promise<GitHubUsers> { seal in
+      seal.reject(APIError.unknown)
+    }
+    
+    self.mockAPIService.mockGitHubUsersPromise = mockGitHubUsersPromise
+  
+    // When
+    viewModel.fetchGitHubUsers()
+    
+    // Then
+    XCTAssertTrue(viewModel.isLoading)
+    
+    // Wait for the API call to finish
+    let expectation = XCTestExpectation(description: "Fetch users")
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      XCTAssertFalse(self.viewModel.isLoading)
+      XCTAssertEqual(self.viewModel.errorMessage, errorMessage)
+      expectation.fulfill()
+    }
+    
+    wait(for: [expectation], timeout: 2)
+  }
+  
+  func testFetchGitHubUser_Success() {
     // Given
     let login = "guilhermeprates"
     
     let mockGitHubUserPromise = Promise<GitHubUser> { seal in
       seal.fulfill(
-        GitHubUser(id: 0, login: "guilhermeprates", avatarURL: nil, type: "user", siteAdmin: false)
+        GitHubUser(
+          id: 0,
+          login: "guilhermeprates",
+          avatarURL: nil,
+          type: "user",
+          siteAdmin: false
+        )
       )
     }
     
@@ -122,7 +182,7 @@ class GitHubUserListViewModelTests: XCTestCase {
     XCTAssertTrue(viewModel.isLoading)
     
     // Wait for the API call to finish
-    let expectation = XCTestExpectation(description: "Fetch user")
+    let expectation = XCTestExpectation(description: "Fetch user with \(login)")
     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
       XCTAssertFalse(self.viewModel.isLoading)
       XCTAssertEqual(self.viewModel.numberOfUsers, 1)
@@ -133,9 +193,37 @@ class GitHubUserListViewModelTests: XCTestCase {
     wait(for: [expectation], timeout: 2)
   }
   
-  func testFetchGitHubUser_Failure() {
+  func testFetchGitHubUser_Failure_DataNotFound() {
     // Given
     let login = "guilhermeprats"
+    let errorMessage = APIError.dataNotFound.localizedDescription
+    
+    let mockGitHubUserPromise = Promise<GitHubUser> { seal in
+      seal.reject(APIError.dataNotFound)
+    }
+    
+    self.mockAPIService.mockGitHubUserPromise = mockGitHubUserPromise
+  
+    // When
+    viewModel.fetchGitHubUser(with: login)
+    
+    // Then
+    XCTAssertTrue(viewModel.isLoading)
+    
+    // Wait for the API call to finish
+    let expectation = XCTestExpectation(description: "Fetch user with \(login)")
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      XCTAssertFalse(self.viewModel.isLoading)
+      XCTAssertEqual(self.viewModel.errorMessage, errorMessage)
+      expectation.fulfill()
+    }
+    
+    wait(for: [expectation], timeout: 2)
+  }
+  
+  func testFetchGitHubUser_Failure_BadAPIRequest() {
+    // Given
+    let login = "guilhermeprates"
     let errorMessage = APIError.badAPIRequest.localizedDescription
     
     let mockGitHubUserPromise = Promise<GitHubUser> { seal in
@@ -151,7 +239,63 @@ class GitHubUserListViewModelTests: XCTestCase {
     XCTAssertTrue(viewModel.isLoading)
     
     // Wait for the API call to finish
-    let expectation = XCTestExpectation(description: "Fetch user")
+    let expectation = XCTestExpectation(description: "Fetch user with \(login)")
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      XCTAssertFalse(self.viewModel.isLoading)
+      XCTAssertEqual(self.viewModel.errorMessage, errorMessage)
+      expectation.fulfill()
+    }
+    
+    wait(for: [expectation], timeout: 2)
+  }
+  
+  func testFetchGitHubUser_Failure_NoInternetConnection() {
+    // Given
+    let login = "guilhermeprates"
+    let errorMessage = APIError.noInternetConnection.localizedDescription
+    
+    let mockGitHubUserPromise = Promise<GitHubUser> { seal in
+      seal.reject(APIError.noInternetConnection)
+    }
+    
+    self.mockAPIService.mockGitHubUserPromise = mockGitHubUserPromise
+  
+    // When
+    viewModel.fetchGitHubUser(with: login)
+    
+    // Then
+    XCTAssertTrue(viewModel.isLoading)
+    
+    // Wait for the API call to finish
+    let expectation = XCTestExpectation(description: "Fetch user with \(login)")
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      XCTAssertFalse(self.viewModel.isLoading)
+      XCTAssertEqual(self.viewModel.errorMessage, errorMessage)
+      expectation.fulfill()
+    }
+    
+    wait(for: [expectation], timeout: 2)
+  }
+  
+  func testFetchGitHubUser_Failure_Unknown() {
+    // Given
+    let login = "guilhermeprates"
+    let errorMessage = APIError.unknown.localizedDescription
+    
+    let mockGitHubUserPromise = Promise<GitHubUser> { seal in
+      seal.reject(APIError.unknown)
+    }
+    
+    self.mockAPIService.mockGitHubUserPromise = mockGitHubUserPromise
+  
+    // When
+    viewModel.fetchGitHubUser(with: login)
+    
+    // Then
+    XCTAssertTrue(viewModel.isLoading)
+    
+    // Wait for the API call to finish
+    let expectation = XCTestExpectation(description: "Fetch user with \(login)")
     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
       XCTAssertFalse(self.viewModel.isLoading)
       XCTAssertEqual(self.viewModel.errorMessage, errorMessage)

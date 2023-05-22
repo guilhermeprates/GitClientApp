@@ -24,9 +24,8 @@ final class GitHubAPIV3Service: GitHubAPIService {
   }
   
   func fetchUser(with login: String) -> Promise<GitHubUser> {
-    return Promise<GitHubUser> { seal in
-      seal.fulfill(GitHubUser(id: 0, login: "", type: "", siteAdmin: false))
-    }
+    let request = GitHubUser.getGitHubUser(with: login)
+    return Session.requestWithPromise(request)
   }
   
   func fetchRepositories(for login: String) -> Promise<GitHubRepositories> {

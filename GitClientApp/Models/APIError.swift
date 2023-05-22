@@ -10,7 +10,7 @@ import Foundation
 enum APIError: Error {
   case noInternetConnection
   case badAPIRequest
-  case unauthorized
+  case dataNotFound
   case unknown
   case invalidURL
 }
