@@ -48,6 +48,14 @@
 		795ADC5A2A1AD97E009675A5 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC592A1AD97E009675A5 /* APIRequest.swift */; };
 		795ADC5B2A1AD97E009675A5 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC592A1AD97E009675A5 /* APIRequest.swift */; };
 		795ADC5F2A1BA257009675A5 /* GitHubUserListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC5E2A1BA257009675A5 /* GitHubUserListViewModelTests.swift */; };
+		795ADC612A1BE2BF009675A5 /* GitHubUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC602A1BE2BF009675A5 /* GitHubUserCell.swift */; };
+		795ADC622A1BE2BF009675A5 /* GitHubUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC602A1BE2BF009675A5 /* GitHubUserCell.swift */; };
+		795ADC642A1BE2ED009675A5 /* GitHubUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC632A1BE2ED009675A5 /* GitHubUserViewModel.swift */; };
+		795ADC652A1BE2ED009675A5 /* GitHubUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC632A1BE2ED009675A5 /* GitHubUserViewModel.swift */; };
+		795ADC692A1BEC39009675A5 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC682A1BEC39009675A5 /* BaseTableViewCell.swift */; };
+		795ADC6A2A1BEC39009675A5 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC682A1BEC39009675A5 /* BaseTableViewCell.swift */; };
+		795ADC6C2A1C0139009675A5 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC6B2A1C0139009675A5 /* AvatarView.swift */; };
+		795ADC6D2A1C0139009675A5 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADC6B2A1C0139009675A5 /* AvatarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +96,10 @@
 		795ADC552A1AD7B1009675A5 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		795ADC592A1AD97E009675A5 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		795ADC5E2A1BA257009675A5 /* GitHubUserListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserListViewModelTests.swift; sourceTree = "<group>"; };
+		795ADC602A1BE2BF009675A5 /* GitHubUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserCell.swift; sourceTree = "<group>"; };
+		795ADC632A1BE2ED009675A5 /* GitHubUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserViewModel.swift; sourceTree = "<group>"; };
+		795ADC682A1BEC39009675A5 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		795ADC6B2A1C0139009675A5 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		93E7294A275A3955808710B8 /* Pods-GitClientApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientApp.debug.xcconfig"; path = "Target Support Files/Pods-GitClientApp/Pods-GitClientApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA79C5FC5A562F85F446DC8F /* Pods_GitClientApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitClientApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5A69CC22F605CF57EAF87F /* Pods-GitClientAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientAppTests.release.xcconfig"; path = "Target Support Files/Pods-GitClientAppTests/Pods-GitClientAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,9 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				795ADC272A1A9D44009675A5 /* App */,
+				795ADC672A1BE94E009675A5 /* Components */,
 				795ADC2B2A1AA947009675A5 /* Extensions */,
 				795ADC0E2A1A9268009675A5 /* Models */,
-				795ADC442A1AB474009675A5 /* API */,
 				795ADC0A2A1A8EC2009675A5 /* Resources */,
 				795ADC0F2A1A9271009675A5 /* Services */,
 				795ADC282A1A9D58009675A5 /* Supporting Files */,
@@ -185,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				795ADC0C2A1A902E009675A5 /* GitHubUserListViewController.swift */,
+				795ADC602A1BE2BF009675A5 /* GitHubUserCell.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -237,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				795ADC452A1AB4B8009675A5 /* BaseViewController.swift */,
+				795ADC682A1BEC39009675A5 /* BaseTableViewCell.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -244,6 +258,7 @@
 		795ADC2B2A1AA947009675A5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				795ADC662A1BE3F0009675A5 /* 3rdPartyLibraries */,
 				795ADC3D2A1AB119009675A5 /* Foundation */,
 				795ADC2C2A1AA99F009675A5 /* UIKit */,
 			);
@@ -282,16 +297,25 @@
 			isa = PBXGroup;
 			children = (
 				795ADC492A1ABAFB009675A5 /* GitHubUserListViewModel.swift */,
+				795ADC632A1BE2ED009675A5 /* GitHubUserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		795ADC442A1AB474009675A5 /* API */ = {
+		795ADC662A1BE3F0009675A5 /* 3rdPartyLibraries */ = {
 			isa = PBXGroup;
 			children = (
 				795ADC4D2A1AC955009675A5 /* Alamofire+PromiseKit.swift */,
 			);
-			path = API;
+			path = 3rdPartyLibraries;
+			sourceTree = "<group>";
+		};
+		795ADC672A1BE94E009675A5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				795ADC6B2A1C0139009675A5 /* AvatarView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		DE939D7C75438AF8E0202A9F /* Pods */ = {
@@ -475,14 +499,18 @@
 				795ADC462A1AB4B8009675A5 /* BaseViewController.swift in Sources */,
 				795ADC362A1AAD01009675A5 /* UICollectionViewExtensions.swift in Sources */,
 				795ADC3A2A1AB0D1009675A5 /* UIViewControllerExtensions.swift in Sources */,
+				795ADC692A1BEC39009675A5 /* BaseTableViewCell.swift in Sources */,
 				795ADC0D2A1A902E009675A5 /* GitHubUserListViewController.swift in Sources */,
 				795ADC112A1A92A2009675A5 /* GitHubUser.swift in Sources */,
 				795ADC2E2A1AA9FB009675A5 /* UIViewExtensions.swift in Sources */,
+				795ADC612A1BE2BF009675A5 /* GitHubUserCell.swift in Sources */,
 				795ADC5A2A1AD97E009675A5 /* APIRequest.swift in Sources */,
 				795ADC3F2A1AB258009675A5 /* DateExtensions.swift in Sources */,
+				795ADC642A1BE2ED009675A5 /* GitHubUserViewModel.swift in Sources */,
 				795ADC322A1AAC85009675A5 /* UITableViewExtensions.swift in Sources */,
 				795ADBDB2A1A849E009675A5 /* AppDelegate.swift in Sources */,
 				795ADC562A1AD7B1009675A5 /* DataExtensions.swift in Sources */,
+				795ADC6C2A1C0139009675A5 /* AvatarView.swift in Sources */,
 				795ADBDD2A1A849E009675A5 /* SceneDelegate.swift in Sources */,
 				795ADC242A1A9BA5009675A5 /* MockGitHubAPIService.swift in Sources */,
 				795ADC152A1A9434009675A5 /* GitHubRepository.swift in Sources */,
@@ -499,19 +527,23 @@
 				795ADC1E2A1A9449009675A5 /* AppDelegate.swift in Sources */,
 				795ADC372A1AAD01009675A5 /* UICollectionViewExtensions.swift in Sources */,
 				795ADC202A1A944C009675A5 /* SceneDelegate.swift in Sources */,
+				795ADC652A1BE2ED009675A5 /* GitHubUserViewModel.swift in Sources */,
 				795ADC532A1AD78E009675A5 /* APIError.swift in Sources */,
 				795ADC5F2A1BA257009675A5 /* GitHubUserListViewModelTests.swift in Sources */,
 				795ADC4F2A1AC955009675A5 /* Alamofire+PromiseKit.swift in Sources */,
 				795ADC572A1AD7B1009675A5 /* DataExtensions.swift in Sources */,
 				795ADC1C2A1A9442009675A5 /* GitHubUserListViewController.swift in Sources */,
 				795ADC3B2A1AB0D1009675A5 /* UIViewControllerExtensions.swift in Sources */,
+				795ADC622A1BE2BF009675A5 /* GitHubUserCell.swift in Sources */,
 				795ADC472A1AB4B8009675A5 /* BaseViewController.swift in Sources */,
 				795ADC182A1A943B009675A5 /* GitHubUser.swift in Sources */,
 				795ADC162A1A9434009675A5 /* GitHubRepository.swift in Sources */,
 				795ADC332A1AAC85009675A5 /* UITableViewExtensions.swift in Sources */,
 				795ADC5B2A1AD97E009675A5 /* APIRequest.swift in Sources */,
+				795ADC6A2A1BEC39009675A5 /* BaseTableViewCell.swift in Sources */,
 				795ADC252A1A9BA5009675A5 /* MockGitHubAPIService.swift in Sources */,
 				795ADC4B2A1ABAFB009675A5 /* GitHubUserListViewModel.swift in Sources */,
+				795ADC6D2A1C0139009675A5 /* AvatarView.swift in Sources */,
 				795ADC2F2A1AA9FB009675A5 /* UIViewExtensions.swift in Sources */,
 				795ADC1A2A1A943F009675A5 /* GitHubAPIService.swift in Sources */,
 				795ADC402A1AB258009675A5 /* DateExtensions.swift in Sources */,

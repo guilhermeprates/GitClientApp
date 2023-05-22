@@ -5,6 +5,7 @@ target 'GitClientApp' do
   pod 'Alamofire', '5.6.4'
   pod 'PromiseKit', '~> 6.8'
   pod 'SnapKit', '~> 5.6.0'
+  pod 'Kingfisher', '~> 7.0'
   
   target 'GitClientAppTests' do
     inherit! :search_paths

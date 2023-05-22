@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.6.4)
+  - Kingfisher (7.7.0)
   - PromiseKit (6.18.1):
     - PromiseKit/CorePromise (= 6.18.1)
     - PromiseKit/Foundation (= 6.18.1)
@@ -13,20 +14,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 5.6.4)
+  - Kingfisher (~> 7.0)
   - PromiseKit (~> 6.8)
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Kingfisher
     - PromiseKit
     - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 36a01ea9f3ca15c938d162ec4a897c7e600b3d77
+PODFILE CHECKSUM: 6cf466761fdacf3b820274e6c9b8ee84bebe3a85
 
 COCOAPODS: 1.12.1
