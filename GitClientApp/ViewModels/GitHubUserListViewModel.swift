@@ -18,4 +18,14 @@ final class GitHubUserListViewModel {
   init(apiService: GitHubAPIService = GitHubAPIV3Service()) {
     self.apiService = apiService
   }
+  
+  func fetchGitHubUsers() {
+    apiService.fetchUsers().done { users in
+      dump(users)
+    }.catch { error in
+      dump(error)
+    }.finally {
+      // todo
+    }
+  }
 }

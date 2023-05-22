@@ -6,18 +6,21 @@
 //
 
 import Foundation
+import PromiseKit
+import Alamofire
 
 final class MockGitHubAPIService: GitHubAPIService {
-  
-  func fetchUsers() -> GitHubUsers {
-    return []
+  func fetchUsers() -> Promise<GitHubUsers> {
+    return Promise<GitHubUsers> { seal in
+      seal.fulfill([])
+    }
   }
   
-  func fetchUser(with username: String) -> GitHubUser {
+  func fetchUser(with login: String) -> GitHubUser {
     return GitHubUser(id: 0, login: "", type: "", siteAdmin: false)
   }
   
-  func fetchRepositories(for username: String) -> GitHubRepositories {
+  func fetchRepositories(for login: String) -> GitHubRepositories {
     return []
   }
 }

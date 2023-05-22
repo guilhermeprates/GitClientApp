@@ -6,24 +6,28 @@
 //
 
 import Foundation
+import PromiseKit
+import Alamofire
 
 protocol GitHubAPIService {
-  func fetchUsers() -> GitHubUsers
-  func fetchUser(with username: String) -> GitHubUser
-  func fetchRepositories(for username: String) -> GitHubRepositories
+  func fetchUsers() -> Promise<GitHubUsers>
+  func fetchUser(with login: String) -> GitHubUser
+  func fetchRepositories(for login: String) -> GitHubRepositories
 }
 
 final class GitHubAPIV3Service: GitHubAPIService {
   
-  func fetchUsers() -> GitHubUsers {
-    return []
+  func fetchUsers() -> Promise<GitHubUsers> {
+    let request = GitHubUser.getGitHubUsers()
+    return Session.requestWithPromise(request)
+    
   }
   
-  func fetchUser(with name: String) -> GitHubUser {
+  func fetchUser(with login: String) -> GitHubUser {
     return GitHubUser(id: 0, login: "", type: "", siteAdmin: false)
   }
   
-  func fetchRepositories(for username: String) -> GitHubRepositories {
+  func fetchRepositories(for login: String) -> GitHubRepositories {
     return []
   }
 }
