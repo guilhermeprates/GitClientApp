@@ -11,8 +11,8 @@ import Alamofire
 
 protocol GitHubAPIService {
   func fetchUsers() -> Promise<GitHubUsers>
-  func fetchUser(with login: String) -> GitHubUser
-  func fetchRepositories(for login: String) -> GitHubRepositories
+  func fetchUser(with login: String) -> Promise<GitHubUser>
+  func fetchRepositories(for login: String) -> Promise<GitHubRepositories>
 }
 
 final class GitHubAPIV3Service: GitHubAPIService {
@@ -23,11 +23,15 @@ final class GitHubAPIV3Service: GitHubAPIService {
     
   }
   
-  func fetchUser(with login: String) -> GitHubUser {
-    return GitHubUser(id: 0, login: "", type: "", siteAdmin: false)
+  func fetchUser(with login: String) -> Promise<GitHubUser> {
+    return Promise<GitHubUser> { seal in
+      seal.fulfill(GitHubUser(id: 0, login: "", type: "", siteAdmin: false))
+    }
   }
   
-  func fetchRepositories(for login: String) -> GitHubRepositories {
-    return []
+  func fetchRepositories(for login: String) -> Promise<GitHubRepositories> {
+    return Promise<GitHubRepositories> { seal in
+      seal.fulfill([])
+    }
   }
 }

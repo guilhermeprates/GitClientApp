@@ -10,17 +10,30 @@ import PromiseKit
 import Alamofire
 
 final class MockGitHubAPIService: GitHubAPIService {
+  
+  var mockGitHubUsersPromise: Promise<GitHubUsers>
+  var mockGitHubUserPromise: Promise<GitHubUser>
+  var mockGitHubRepositoriesPromise: Promise<GitHubRepositories>
+    
+  init(
+    mockGitHubUsersPromise: Promise<GitHubUsers>,
+    mockGitHubUserPromise: Promise<GitHubUser>,
+    mockGitHubRepositoriesPromise: Promise<GitHubRepositories>
+  ) {
+    self.mockGitHubUsersPromise = mockGitHubUsersPromise
+    self.mockGitHubUserPromise = mockGitHubUserPromise
+    self.mockGitHubRepositoriesPromise = mockGitHubRepositoriesPromise
+  }
+  
   func fetchUsers() -> Promise<GitHubUsers> {
-    return Promise<GitHubUsers> { seal in
-      seal.fulfill([])
-    }
+    return mockGitHubUsersPromise
   }
   
-  func fetchUser(with login: String) -> GitHubUser {
-    return GitHubUser(id: 0, login: "", type: "", siteAdmin: false)
+  func fetchUser(with login: String) -> Promise<GitHubUser> {
+    return mockGitHubUserPromise
   }
   
-  func fetchRepositories(for login: String) -> GitHubRepositories {
-    return []
+  func fetchRepositories(for login: String) -> Promise<GitHubRepositories> {
+    return mockGitHubRepositoriesPromise
   }
 }
