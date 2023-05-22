@@ -48,6 +48,7 @@ final class GitHubUserListViewController: BaseViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "GitHub Users"
+    viewModel.delegate = self
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(cellWithClass: GitHubUserCell.self)
@@ -55,7 +56,7 @@ final class GitHubUserListViewController: BaseViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    loadData()
+    viewModel.fetchGitHubUsers()
   }
   
   // MARK: - Layout
@@ -77,20 +78,29 @@ final class GitHubUserListViewController: BaseViewController {
   
   @objc
   func didPullToRefresh(_ sender: AnyObject) {
-     loadData()
+    viewModel.fetchGitHubUsers()
+  }
+}
+
+// MARK: - GitHubUserListViewModelDelegate
+extension GitHubUserListViewController: GitHubUserListViewModelDelegate {
+  
+  func didUpdateUserList() {
+    tableView.reloadData()
   }
   
-  // MARK: - Data
-  
-  private func loadData() {
-    if viewModel.numberOfUsers == 0 {
+  func didUpdateLoadingStatus() {
+    if viewModel.isLoading && viewModel.numberOfUsers == 0 {
       activityIndicatorView.startAnimating()
+    } else {
+      refreshControl.endRefreshing()
+      activityIndicatorView.stopAnimating()
     }
-    viewModel.fetchGitHubUsers { [weak self] in
-      self?.tableView.reloadData()
-      self?.refreshControl.endRefreshing()
-      self?.activityIndicatorView.stopAnimating()
-    }
+  }
+  
+  func didUpdateErrorMessage() {
+    guard let errorMessage = viewModel.errorMessage else { return }
+    showAlert(title: "Erro", message: errorMessage)
   }
 }
 

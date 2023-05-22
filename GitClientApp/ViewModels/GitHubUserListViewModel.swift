@@ -7,21 +7,41 @@
 
 import Foundation
 
+protocol GitHubUserListViewModelDelegate: AnyObject {
+  func didUpdateUserList()
+  func didUpdateLoadingStatus()
+  func didUpdateErrorMessage()
+}
+
 final class GitHubUserListViewModel {
   
   // MARK: - Properties
   
   private var apiService: GitHubAPIService
   
-  private var users: GitHubUsers = []
+  private var users: GitHubUsers = [] {
+    didSet {
+      delegate?.didUpdateUserList()
+    }
+  }
   
-  private(set) var isLoading: Bool = false
+  private(set) var isLoading: Bool = false {
+    didSet {
+      delegate?.didUpdateLoadingStatus()
+    }
+  }
   
-  private(set) var errorMessage: String?
+  private(set) var errorMessage: String? {
+    didSet {
+      delegate?.didUpdateErrorMessage()
+    }
+  }
   
   var numberOfUsers: Int {
     return users.count
   }
+  
+  weak var delegate: GitHubUserListViewModelDelegate?
   
   // MARK: - Initialization
   
@@ -31,7 +51,7 @@ final class GitHubUserListViewModel {
   
   // MARK: - API Call
   
-  func fetchGitHubUsers(_ completion: @escaping () -> () = {}) {
+  func fetchGitHubUsers() {
     isLoading = true
     apiService.fetchUsers().done { users in
       self.users = users
@@ -40,11 +60,10 @@ final class GitHubUserListViewModel {
       self.errorMessage = error.localizedDescription
     }.finally {
       self.isLoading = false
-      completion()
     }
   }
   
-  func fetchGitHubUser(with login: String, _ completion: @escaping () -> () = {}) {
+  func fetchGitHubUser(with login: String) {
     isLoading = true
     apiService.fetchUser(with: login).done { user in
       self.users = [ user ]
@@ -54,7 +73,6 @@ final class GitHubUserListViewModel {
       self.errorMessage = error.localizedDescription
     }.finally {
       self.isLoading = false
-      completion()
     }
   }
   
