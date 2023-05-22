@@ -16,6 +16,11 @@ struct GitHubUser {
   var avatarURL: URL?
   var type: String
   var siteAdmin: Bool
+  var name: String
+  var bio: String
+  var location: String
+  var followers: Int
+  var following: Int
 }
 
 extension GitHubUser {
@@ -39,9 +44,10 @@ extension GitHubUser {
 extension GitHubUser: Codable {
   
   enum CodingKeys: String, CodingKey {
-     case id, login, type
-     case avatarURL = "avatar_url"
-     case siteAdmin = "site_admin"
+    case id, login, type, name, location,
+         bio, followers, following
+    case avatarURL = "avatar_url"
+    case siteAdmin = "site_admin"
    }
 
   init(from decoder: Decoder) throws {
@@ -51,6 +57,11 @@ extension GitHubUser: Codable {
     avatarURL = try values.decode(URL.self, forKey: .avatarURL)
     type = try values.decode(String.self, forKey: .type)
     siteAdmin = try values.decode(Bool.self, forKey: .siteAdmin)
+    name = try values.decodeIfPresent(String.self, forKey: .name) ?? ""
+    bio = try values.decodeIfPresent(String.self, forKey: .bio) ?? ""
+    location = try values.decodeIfPresent(String.self, forKey: .location) ?? ""
+    followers = try values.decodeIfPresent(Int.self, forKey: .followers) ?? 0
+    following = try values.decodeIfPresent(Int.self, forKey: .following) ?? 0
   }
 }
 

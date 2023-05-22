@@ -24,6 +24,12 @@ class BaseViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupLayout()
+  }
+  
+  // MARK: - Layout
+  
+  func setupLayout() {
     view.backgroundColor = .white
   }
 }

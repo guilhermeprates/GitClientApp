@@ -31,25 +31,30 @@ final class GitHubUserListViewModel {
   
   // MARK: - API Call
   
-  func fetchGitHubUsers() {
+  func fetchGitHubUsers(_ completion: @escaping () -> () = {}) {
     isLoading = true
     apiService.fetchUsers().done { users in
       self.users = users
+      self.errorMessage = nil
     }.catch { error in
       self.errorMessage = error.localizedDescription
     }.finally {
       self.isLoading = false
+      completion()
     }
   }
   
-  func fetchGitHubUser(with login: String) {
+  func fetchGitHubUser(with login: String, _ completion: @escaping () -> () = {}) {
     isLoading = true
     apiService.fetchUser(with: login).done { user in
       self.users = [ user ]
+      self.errorMessage = nil
     }.catch { error in
+      self.users = []
       self.errorMessage = error.localizedDescription
     }.finally {
       self.isLoading = false
+      completion()
     }
   }
   

@@ -22,7 +22,18 @@ class GitHubUserListViewModelTests: XCTestCase {
     
     let mockGitHubUserPromise = Promise<GitHubUser> { seal in
       seal.fulfill(
-        GitHubUser(id: 0, login: "guilhermeprates", avatarURL: nil, type: "user", siteAdmin: false)
+        GitHubUser(
+          id: 1538573,
+          login: "guilhermeprates",
+          avatarURL: URL(string: "https://avatars.githubusercontent.com/u/1538573?v=4"),
+          type: "User",
+          siteAdmin: false,
+          name: "Guilherme Prates",
+          bio: "iOS Software Engineer",
+          location: "Brazil",
+          followers: 34,
+          following: 33
+        )
       )
     }
     
@@ -47,8 +58,30 @@ class GitHubUserListViewModelTests: XCTestCase {
   func testFetchGitHubUsers_Success() {
     // Given
     let users = [
-      GitHubUser(id: 0, login: "guilhermeprates", avatarURL: nil, type: "user", siteAdmin: false),
-      GitHubUser(id: 1, login: "torvalds", avatarURL: nil, type: "user", siteAdmin: false)
+      GitHubUser(
+        id: 1538573,
+        login: "guilhermeprates",
+        avatarURL: URL(string: "https://avatars.githubusercontent.com/u/1538573?v=4"),
+        type: "User",
+        siteAdmin: false,
+        name: "Guilherme Prates",
+        bio: "iOS Software Engineer",
+        location: "Brazil",
+        followers: 34,
+        following: 33
+      ),
+      GitHubUser(
+        id: 1024025,
+        login: "torvalds",
+        avatarURL: URL(string: "https://avatars.githubusercontent.com/u/1024025?v=4"),
+        type: "User",
+        siteAdmin: false,
+        name: "Linus Torvalds",
+        bio: "",
+        location: "Portland, OR",
+        followers: 183000,
+        following: 0
+      )
     ]
     
     let mockGitHubUsersPromise = Promise<GitHubUsers> { seal in
@@ -167,8 +200,13 @@ class GitHubUserListViewModelTests: XCTestCase {
           id: 0,
           login: "guilhermeprates",
           avatarURL: nil,
-          type: "user",
-          siteAdmin: false
+          type: "User",
+          siteAdmin: false,
+          name: "Guilherme Prates",
+          bio: "iOS Software Engineer",
+          location: "Brazil",
+          followers: 34,
+          following: 33
         )
       )
     }
