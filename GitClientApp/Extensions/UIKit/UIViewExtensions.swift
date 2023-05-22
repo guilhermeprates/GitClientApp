@@ -11,7 +11,7 @@ import UIKit
 
 public extension UIView {
   
-  var identifier: String {
+  class var identifier: String {
     return String(describing: self)
   }
   

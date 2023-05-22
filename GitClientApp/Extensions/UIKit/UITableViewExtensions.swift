@@ -27,14 +27,18 @@ public extension UITableView {
     tableHeaderView = nil
   }
   
+  func removeSeparator() {
+    separatorStyle = .none
+  }
+  
   func register<T: UITableViewCell>(cellWithClass name: T.Type) {
-      register(T.self, forCellReuseIdentifier: String(describing: name))
+    register(T.self, forCellReuseIdentifier: T.identifier)
   }
   
   func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type) -> T {
-    guard let cell = dequeueReusableCell(withIdentifier: identifier) as? T else {
+    guard let cell = dequeueReusableCell(withIdentifier: T.identifier) as? T else {
       fatalError(
-        "Couldn't find UITableViewCell for \(identifier), make sure the cell is registered with table view")
+        "Couldn't find UITableViewCell for \(T.identifier), make sure the cell is registered with table view")
     }
     return cell
   }
@@ -43,9 +47,9 @@ public extension UITableView {
     withClass name: T.Type,
     for indexPath: IndexPath
   ) -> T {
-    guard let cell = dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? T else {
+    guard let cell = dequeueReusableCell(withIdentifier: T.identifier, for: indexPath) as? T else {
       fatalError(
-        "Couldn't find UITableViewCell for \(identifier), make sure the cell is registered with table view")
+        "Couldn't find UITableViewCell for \(T.identifier), make sure the cell is registered with table view")
     }
     return cell
   }
@@ -55,9 +59,9 @@ public extension UITableView {
   }
 
   func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass name: T.Type) -> T {
-      guard let headerFooterView = dequeueReusableHeaderFooterView(withIdentifier: identifier) as? T else {
+    guard let headerFooterView = dequeueReusableHeaderFooterView(withIdentifier: T.identifier) as? T else {
           fatalError(
-              "Couldn't find UITableViewHeaderFooterView for \(identifier), make sure the view is registered with table view")
+            "Couldn't find UITableViewHeaderFooterView for \(T.identifier), make sure the view is registered with table view")
       }
       return headerFooterView
   }

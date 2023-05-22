@@ -30,16 +30,16 @@ public extension UICollectionView {
    }
   
   func register<T: UICollectionViewCell>(cellWithClass name: T.Type) {
-    register(T.self, forCellWithReuseIdentifier: identifier)
+    register(T.self, forCellWithReuseIdentifier: T.identifier)
   }
   
   func dequeueReusableCell<T: UICollectionViewCell>(
     withClass name: T.Type,
     for indexPath: IndexPath
   ) -> T {
-    guard let cell = dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? T else {
+    guard let cell = dequeueReusableCell(withReuseIdentifier: T.identifier, for: indexPath) as? T else {
       fatalError(
-        "Couldn't find UICollectionViewCell for \(identifier), make sure the cell is registered with collection view")
+        "Couldn't find UICollectionViewCell for \(T.identifier), make sure the cell is registered with collection view")
     }
     return cell
   }
@@ -48,7 +48,7 @@ public extension UICollectionView {
     supplementaryViewOfKind kind: String,
     withClass name: T.Type
   ) {
-    register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: identifier)
+    register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: T.identifier)
   }
   
   func dequeueReusableSupplementaryView<T: UICollectionReusableView>(
@@ -58,11 +58,11 @@ public extension UICollectionView {
   ) -> T {
     guard let cell = dequeueReusableSupplementaryView(
       ofKind: kind,
-      withReuseIdentifier: identifier,
+      withReuseIdentifier: T.identifier,
       for: indexPath
     ) as? T else {
       fatalError(
-        "Couldn't find UICollectionReusableView for \(identifier), make sure the view is registered with collection view")
+        "Couldn't find UICollectionReusableView for \(T.identifier), make sure the view is registered with collection view")
     }
     return cell
   }
