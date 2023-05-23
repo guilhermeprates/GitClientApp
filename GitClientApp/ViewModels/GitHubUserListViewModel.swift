@@ -17,7 +17,7 @@ final class GitHubUserListViewModel {
   
   // MARK: - Properties
   
-  private var apiService: GitHubAPIService
+  private let apiService: GitHubAPIService
   
   private var users: GitHubUsers = [] {
     didSet {

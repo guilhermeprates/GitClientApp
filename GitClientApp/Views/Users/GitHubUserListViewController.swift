@@ -127,6 +127,16 @@ extension GitHubUserListViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100.0
   }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    searchController.dismiss(animated: true) {
+      self.searchController.searchBar.text = ""
+      let user = self.viewModel.getUser(at: indexPath.row)
+      let viewModel = GitHubUserViewModel(user: user)
+      let viewController = GitHubUserDetailsViewController(viewModel: viewModel)
+      self.navigationController?.pushViewController(viewController, animated: true)
+    }
+  }
 }
 
 // MARK: - UITableViewDataSource

@@ -25,11 +25,16 @@ final class GitHubUserCell: BaseTableViewCell {
   
   private lazy var avatarView: AvatarView = {
     let avatarView = AvatarView()
+    avatarView.translatesAutoresizingMaskIntoConstraints = false
     return avatarView
   }()
   
   private lazy var loginLabel: UILabel = {
     let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.font = UIFont.preferredFont(forTextStyle: .title2)
+    label.textAlignment = .left
+    label.numberOfLines = 1
     return label
   }()
   

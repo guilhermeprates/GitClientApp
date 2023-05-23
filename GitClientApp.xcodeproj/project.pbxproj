@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		16EE943598B22FA867878108 /* Pods_GitClientApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA79C5FC5A562F85F446DC8F /* Pods_GitClientApp.framework */; };
 		40D6B0D7694E7261FD34AB4D /* Pods_GitClientAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4C4753122A9833EAB45068 /* Pods_GitClientAppTests.framework */; };
+		795135C12A1CF2CE003CBCC9 /* GitHubUserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C02A1CF2CE003CBCC9 /* GitHubUserDetailsViewController.swift */; };
+		795135C42A1D0B39003CBCC9 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C32A1D0B39003CBCC9 /* BaseCollectionViewCell.swift */; };
+		795135C62A1D0B5F003CBCC9 /* GitHubUserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C52A1D0B5F003CBCC9 /* GitHubUserHeaderView.swift */; };
+		795135C82A1D1028003CBCC9 /* GitHubRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C72A1D1028003CBCC9 /* GitHubRepositoryCell.swift */; };
+		795135CA2A1D14EF003CBCC9 /* GitHubRepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C92A1D14EF003CBCC9 /* GitHubRepositoryViewModel.swift */; };
+		795135CB2A1D14EF003CBCC9 /* GitHubRepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C92A1D14EF003CBCC9 /* GitHubRepositoryViewModel.swift */; };
+		795135CD2A1D2821003CBCC9 /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135CC2A1D2821003CBCC9 /* BaseHeaderView.swift */; };
+		795135CE2A1D2821003CBCC9 /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135CC2A1D2821003CBCC9 /* BaseHeaderView.swift */; };
+		795135D02A1D41B1003CBCC9 /* GitHubUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135CF2A1D41B1003CBCC9 /* GitHubUserViewModelTests.swift */; };
+		795135D22A1D51C4003CBCC9 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135D12A1D51C4003CBCC9 /* Data.swift */; };
+		795135D32A1D60E9003CBCC9 /* GitHubUserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C02A1CF2CE003CBCC9 /* GitHubUserDetailsViewController.swift */; };
+		795135D42A1D60EF003CBCC9 /* GitHubRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C72A1D1028003CBCC9 /* GitHubRepositoryCell.swift */; };
+		795135D52A1D60F2003CBCC9 /* GitHubUserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C52A1D0B5F003CBCC9 /* GitHubUserHeaderView.swift */; };
+		795135D62A1D60FE003CBCC9 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795135C32A1D0B39003CBCC9 /* BaseCollectionViewCell.swift */; };
 		795ADBDB2A1A849E009675A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADBDA2A1A849E009675A5 /* AppDelegate.swift */; };
 		795ADBDD2A1A849E009675A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795ADBDC2A1A849E009675A5 /* SceneDelegate.swift */; };
 		795ADBE42A1A84A4009675A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 795ADBE32A1A84A4009675A5 /* Assets.xcassets */; };
@@ -71,6 +85,14 @@
 /* Begin PBXFileReference section */
 		05CD74DA082BF83CEAC3E3AB /* Pods-GitClientApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientApp.release.xcconfig"; path = "Target Support Files/Pods-GitClientApp/Pods-GitClientApp.release.xcconfig"; sourceTree = "<group>"; };
 		6B328A9317F5ADC706101542 /* Pods-GitClientAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitClientAppTests.debug.xcconfig"; path = "Target Support Files/Pods-GitClientAppTests/Pods-GitClientAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		795135C02A1CF2CE003CBCC9 /* GitHubUserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserDetailsViewController.swift; sourceTree = "<group>"; };
+		795135C32A1D0B39003CBCC9 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		795135C52A1D0B5F003CBCC9 /* GitHubUserHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserHeaderView.swift; sourceTree = "<group>"; };
+		795135C72A1D1028003CBCC9 /* GitHubRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryCell.swift; sourceTree = "<group>"; };
+		795135C92A1D14EF003CBCC9 /* GitHubRepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoryViewModel.swift; sourceTree = "<group>"; };
+		795135CC2A1D2821003CBCC9 /* BaseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
+		795135CF2A1D41B1003CBCC9 /* GitHubUserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserViewModelTests.swift; sourceTree = "<group>"; };
+		795135D12A1D51C4003CBCC9 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		795ADBD72A1A849E009675A5 /* GitClientApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitClientApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		795ADBDA2A1A849E009675A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		795ADBDC2A1A849E009675A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +157,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		795135C22A1D0322003CBCC9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				795ADC602A1BE2BF009675A5 /* GitHubUserCell.swift */,
+				795135C52A1D0B5F003CBCC9 /* GitHubUserHeaderView.swift */,
+				795135C72A1D1028003CBCC9 /* GitHubRepositoryCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		795ADBCE2A1A849E009675A5 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +211,7 @@
 			children = (
 				795ADBF32A1A84A5009675A5 /* Info.plist */,
 				795ADC5E2A1BA257009675A5 /* GitHubUserListViewModelTests.swift */,
+				795135CF2A1D41B1003CBCC9 /* GitHubUserViewModelTests.swift */,
 				795ADC222A1A9B82009675A5 /* Mock */,
 			);
 			path = GitClientAppTests;
@@ -196,8 +229,9 @@
 		795ADC0B2A1A9001009675A5 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				795135C22A1D0322003CBCC9 /* Cells */,
+				795135C02A1CF2CE003CBCC9 /* GitHubUserDetailsViewController.swift */,
 				795ADC0C2A1A902E009675A5 /* GitHubUserListViewController.swift */,
-				795ADC602A1BE2BF009675A5 /* GitHubUserCell.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -225,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				795ADC232A1A9BA4009675A5 /* MockGitHubAPIService.swift */,
+				795135D12A1D51C4003CBCC9 /* Data.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -251,6 +286,8 @@
 			children = (
 				795ADC452A1AB4B8009675A5 /* BaseViewController.swift */,
 				795ADC682A1BEC39009675A5 /* BaseTableViewCell.swift */,
+				795135C32A1D0B39003CBCC9 /* BaseCollectionViewCell.swift */,
+				795135CC2A1D2821003CBCC9 /* BaseHeaderView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -298,6 +335,7 @@
 			children = (
 				795ADC492A1ABAFB009675A5 /* GitHubUserListViewModel.swift */,
 				795ADC632A1BE2ED009675A5 /* GitHubUserViewModel.swift */,
+				795135C92A1D14EF003CBCC9 /* GitHubRepositoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -495,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				795135C82A1D1028003CBCC9 /* GitHubRepositoryCell.swift in Sources */,
 				795ADC4A2A1ABAFB009675A5 /* GitHubUserListViewModel.swift in Sources */,
 				795ADC462A1AB4B8009675A5 /* BaseViewController.swift in Sources */,
 				795ADC362A1AAD01009675A5 /* UICollectionViewExtensions.swift in Sources */,
@@ -506,16 +545,21 @@
 				795ADC612A1BE2BF009675A5 /* GitHubUserCell.swift in Sources */,
 				795ADC5A2A1AD97E009675A5 /* APIRequest.swift in Sources */,
 				795ADC3F2A1AB258009675A5 /* DateExtensions.swift in Sources */,
+				795135C62A1D0B5F003CBCC9 /* GitHubUserHeaderView.swift in Sources */,
 				795ADC642A1BE2ED009675A5 /* GitHubUserViewModel.swift in Sources */,
 				795ADC322A1AAC85009675A5 /* UITableViewExtensions.swift in Sources */,
 				795ADBDB2A1A849E009675A5 /* AppDelegate.swift in Sources */,
 				795ADC562A1AD7B1009675A5 /* DataExtensions.swift in Sources */,
 				795ADC6C2A1C0139009675A5 /* AvatarView.swift in Sources */,
 				795ADBDD2A1A849E009675A5 /* SceneDelegate.swift in Sources */,
+				795135C42A1D0B39003CBCC9 /* BaseCollectionViewCell.swift in Sources */,
 				795ADC242A1A9BA5009675A5 /* MockGitHubAPIService.swift in Sources */,
+				795135C12A1CF2CE003CBCC9 /* GitHubUserDetailsViewController.swift in Sources */,
 				795ADC152A1A9434009675A5 /* GitHubRepository.swift in Sources */,
+				795135CA2A1D14EF003CBCC9 /* GitHubRepositoryViewModel.swift in Sources */,
 				795ADC522A1AD78E009675A5 /* APIError.swift in Sources */,
 				795ADC132A1A92F3009675A5 /* GitHubAPIService.swift in Sources */,
+				795135CD2A1D2821003CBCC9 /* BaseHeaderView.swift in Sources */,
 				795ADC4E2A1AC955009675A5 /* Alamofire+PromiseKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,10 +572,13 @@
 				795ADC372A1AAD01009675A5 /* UICollectionViewExtensions.swift in Sources */,
 				795ADC202A1A944C009675A5 /* SceneDelegate.swift in Sources */,
 				795ADC652A1BE2ED009675A5 /* GitHubUserViewModel.swift in Sources */,
+				795135D02A1D41B1003CBCC9 /* GitHubUserViewModelTests.swift in Sources */,
+				795135D52A1D60F2003CBCC9 /* GitHubUserHeaderView.swift in Sources */,
 				795ADC532A1AD78E009675A5 /* APIError.swift in Sources */,
 				795ADC5F2A1BA257009675A5 /* GitHubUserListViewModelTests.swift in Sources */,
 				795ADC4F2A1AC955009675A5 /* Alamofire+PromiseKit.swift in Sources */,
 				795ADC572A1AD7B1009675A5 /* DataExtensions.swift in Sources */,
+				795135CB2A1D14EF003CBCC9 /* GitHubRepositoryViewModel.swift in Sources */,
 				795ADC1C2A1A9442009675A5 /* GitHubUserListViewController.swift in Sources */,
 				795ADC3B2A1AB0D1009675A5 /* UIViewControllerExtensions.swift in Sources */,
 				795ADC622A1BE2BF009675A5 /* GitHubUserCell.swift in Sources */,
@@ -543,10 +590,15 @@
 				795ADC6A2A1BEC39009675A5 /* BaseTableViewCell.swift in Sources */,
 				795ADC252A1A9BA5009675A5 /* MockGitHubAPIService.swift in Sources */,
 				795ADC4B2A1ABAFB009675A5 /* GitHubUserListViewModel.swift in Sources */,
+				795135D42A1D60EF003CBCC9 /* GitHubRepositoryCell.swift in Sources */,
 				795ADC6D2A1C0139009675A5 /* AvatarView.swift in Sources */,
+				795135D62A1D60FE003CBCC9 /* BaseCollectionViewCell.swift in Sources */,
 				795ADC2F2A1AA9FB009675A5 /* UIViewExtensions.swift in Sources */,
 				795ADC1A2A1A943F009675A5 /* GitHubAPIService.swift in Sources */,
 				795ADC402A1AB258009675A5 /* DateExtensions.swift in Sources */,
+				795135D22A1D51C4003CBCC9 /* Data.swift in Sources */,
+				795135CE2A1D2821003CBCC9 /* BaseHeaderView.swift in Sources */,
+				795135D32A1D60E9003CBCC9 /* GitHubUserDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,7 +750,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MULW6N96VK;
 				INFOPLIST_FILE = "GitClientApp/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -721,7 +773,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MULW6N96VK;
 				INFOPLIST_FILE = "GitClientApp/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
