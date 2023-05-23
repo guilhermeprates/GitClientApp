@@ -20,7 +20,6 @@ final class GitHubAPIV3Service: GitHubAPIService {
   func fetchUsers() -> Promise<GitHubUsers> {
     let request = GitHubUser.getGitHubUsers()
     return Session.requestWithPromise(request)
-    
   }
   
   func fetchUser(with login: String) -> Promise<GitHubUser> {
@@ -29,8 +28,7 @@ final class GitHubAPIV3Service: GitHubAPIService {
   }
   
   func fetchRepositories(for login: String) -> Promise<GitHubRepositories> {
-    return Promise<GitHubRepositories> { seal in
-      seal.fulfill([])
-    }
+    let request = GitHubRepository.getGitHubRepositories(for: login)
+    return Session.requestWithPromise(request)
   }
 }

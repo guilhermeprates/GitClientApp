@@ -41,6 +41,7 @@ extension GitHubUser {
     }
   }
 }
+
 extension GitHubUser: Codable {
   
   enum CodingKeys: String, CodingKey {

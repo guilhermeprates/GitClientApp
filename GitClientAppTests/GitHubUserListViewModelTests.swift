@@ -11,6 +11,7 @@ import PromiseKit
 class GitHubUserListViewModelTests: XCTestCase {
   
   var viewModel: GitHubUserListViewModel!
+  
   var mockAPIService: MockGitHubAPIService!
   
   override func setUp() {
@@ -19,24 +20,9 @@ class GitHubUserListViewModelTests: XCTestCase {
     let mockGitHubUsersPromise = Promise<GitHubUsers> { seal in
       seal.fulfill([])
     }
-    
     let mockGitHubUserPromise = Promise<GitHubUser> { seal in
-      seal.fulfill(
-        GitHubUser(
-          id: 1538573,
-          login: "guilhermeprates",
-          avatarURL: URL(string: "https://avatars.githubusercontent.com/u/1538573?v=4"),
-          type: "User",
-          siteAdmin: false,
-          name: "Guilherme Prates",
-          bio: "iOS Software Engineer",
-          location: "Brazil",
-          followers: 34,
-          following: 33
-        )
-      )
+      seal.fulfill(guilhermePrates)
     }
-    
     let mockGitHubRepositoriesPromise = Promise<GitHubRepositories> { seal in
       seal.fulfill([])
     }
@@ -46,6 +32,7 @@ class GitHubUserListViewModelTests: XCTestCase {
       mockGitHubUserPromise: mockGitHubUserPromise,
       mockGitHubRepositoriesPromise: mockGitHubRepositoriesPromise
     )
+    
     viewModel = GitHubUserListViewModel(apiService: mockAPIService)
   }
   
@@ -57,33 +44,6 @@ class GitHubUserListViewModelTests: XCTestCase {
   
   func testFetchGitHubUsers_Success() {
     // Given
-    let users = [
-      GitHubUser(
-        id: 1538573,
-        login: "guilhermeprates",
-        avatarURL: URL(string: "https://avatars.githubusercontent.com/u/1538573?v=4"),
-        type: "User",
-        siteAdmin: false,
-        name: "Guilherme Prates",
-        bio: "iOS Software Engineer",
-        location: "Brazil",
-        followers: 34,
-        following: 33
-      ),
-      GitHubUser(
-        id: 1024025,
-        login: "torvalds",
-        avatarURL: URL(string: "https://avatars.githubusercontent.com/u/1024025?v=4"),
-        type: "User",
-        siteAdmin: false,
-        name: "Linus Torvalds",
-        bio: "",
-        location: "Portland, OR",
-        followers: 183000,
-        following: 0
-      )
-    ]
-    
     let mockGitHubUsersPromise = Promise<GitHubUsers> { seal in
       seal.fulfill(users)
     }
@@ -195,20 +155,7 @@ class GitHubUserListViewModelTests: XCTestCase {
     let login = "guilhermeprates"
     
     let mockGitHubUserPromise = Promise<GitHubUser> { seal in
-      seal.fulfill(
-        GitHubUser(
-          id: 0,
-          login: "guilhermeprates",
-          avatarURL: nil,
-          type: "User",
-          siteAdmin: false,
-          name: "Guilherme Prates",
-          bio: "iOS Software Engineer",
-          location: "Brazil",
-          followers: 34,
-          following: 33
-        )
-      )
+      seal.fulfill(guilhermePrates)
     }
     
     self.mockAPIService.mockGitHubUserPromise = mockGitHubUserPromise
