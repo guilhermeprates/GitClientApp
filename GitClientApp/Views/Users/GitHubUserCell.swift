@@ -19,7 +19,7 @@ final class GitHubUserCell: BaseTableViewCell {
     stackView.axis = .horizontal
     stackView.alignment = .center
     stackView.distribution = .fill
-    stackView.spacing = 10
+    stackView.spacing = 16
     return stackView
   }()
   
@@ -37,6 +37,7 @@ final class GitHubUserCell: BaseTableViewCell {
   
   override func setupLayout() {
     super.setupLayout()
+    accessoryType = .disclosureIndicator
     stackView.addArrangedSubview(avatarView)
     stackView.addArrangedSubview(loginLabel)
     contentView.addSubview(stackView)
