@@ -14,6 +14,14 @@ final class GitHubUserListViewController: BaseViewController {
   
   private let viewModel: GitHubUserListViewModel
   
+  private lazy var searchController: UISearchController = {
+    let searchController = UISearchController()
+    searchController.searchBar.placeholder = "Insira o login do usuário"
+    searchController.searchBar.searchBarStyle = .minimal
+    searchController.obscuresBackgroundDuringPresentation = false
+    return searchController
+  }()
+  
   private lazy var tableView: UITableView = {
     let tableView = UITableView()
     tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +57,7 @@ final class GitHubUserListViewController: BaseViewController {
     super.viewDidLoad()
     title = "GitHub Users"
     viewModel.delegate = self
+    searchController.searchBar.delegate = self
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(cellWithClass: GitHubUserCell.self)
@@ -63,6 +72,7 @@ final class GitHubUserListViewController: BaseViewController {
   
   override func setupLayout() {
     super.setupLayout()
+    navigationItem.searchController = searchController
     tableView.refreshControl = refreshControl
     tableView.addSubview(activityIndicatorView)
     view.addSubview(tableView)
@@ -86,21 +96,28 @@ final class GitHubUserListViewController: BaseViewController {
 extension GitHubUserListViewController: GitHubUserListViewModelDelegate {
   
   func didUpdateUserList() {
-    tableView.reloadData()
+    DispatchQueue.main.async { [weak self] in
+      self?.tableView.reloadData()
+    }
   }
   
   func didUpdateLoadingStatus() {
-    if viewModel.isLoading && viewModel.numberOfUsers == 0 {
-      activityIndicatorView.startAnimating()
-    } else {
-      refreshControl.endRefreshing()
-      activityIndicatorView.stopAnimating()
+    DispatchQueue.main.async { [weak self] in
+      guard let strongSelf = self else { return }
+      if strongSelf.viewModel.isLoading && strongSelf.viewModel.numberOfUsers == 0 {
+        strongSelf.activityIndicatorView.startAnimating()
+      } else {
+        strongSelf.refreshControl.endRefreshing()
+        strongSelf.activityIndicatorView.stopAnimating()
+      }
     }
   }
   
   func didUpdateErrorMessage() {
-    guard let errorMessage = viewModel.errorMessage else { return }
-    showAlert(title: "Erro", message: errorMessage)
+    DispatchQueue.main.async { [weak self] in
+      guard let errorMessage = self?.viewModel.errorMessage else { return }
+      self?.showAlert(title: "Erro", message: errorMessage)
+    }
   }
 }
 
@@ -130,5 +147,22 @@ extension GitHubUserListViewController: UITableViewDataSource {
     let user = viewModel.getUser(at: indexPath.row)
     cell.configure(with: GitHubUserViewModel(user: user))
     return cell
+  }
+}
+
+// MARK: - UISearchBarDelegate
+extension GitHubUserListViewController: UISearchBarDelegate {
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    searchBar.text = searchText.lowercased()
+  }
+  
+  func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    guard let login = searchController.searchBar.text, !login.isEmpty else { return }
+    viewModel.fetchGitHubUser(with: login)
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    viewModel.fetchGitHubUsers()
   }
 }
