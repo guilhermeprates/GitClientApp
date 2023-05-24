@@ -25,6 +25,7 @@ final class GitHubUserListViewController: BaseViewController {
   private lazy var tableView: UITableView = {
     let tableView = UITableView()
     tableView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.tableHeaderView = UIView()
     tableView.tableFooterView = UIView()
     return tableView
   }()
@@ -55,7 +56,7 @@ final class GitHubUserListViewController: BaseViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    title = "GitHub Users"
+    title = "Usuários"
     viewModel.delegate = self
     searchController.searchBar.delegate = self
     tableView.delegate = self
@@ -73,6 +74,7 @@ final class GitHubUserListViewController: BaseViewController {
   override func setupLayout() {
     super.setupLayout()
     navigationItem.searchController = searchController
+    searchController.searchBar.tintColor = .darkText
     tableView.refreshControl = refreshControl
     tableView.addSubview(activityIndicatorView)
     view.addSubview(tableView)

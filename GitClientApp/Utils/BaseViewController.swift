@@ -24,6 +24,7 @@ class BaseViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupNavigationBar()
     setupLayout()
   }
   
@@ -31,5 +32,40 @@ class BaseViewController: UIViewController {
   
   func setupLayout() {
     view.backgroundColor = .white
+  }
+  
+  private func setupNavigationBar() {
+    navigationController?.navigationBar.prefersLargeTitles = false
+    navigationController?.navigationItem.largeTitleDisplayMode = .never
+    navigationController?.navigationBar.tintColor = .darkText
+
+    let appearance = UINavigationBarAppearance()
+    appearance.configureWithOpaqueBackground()
+    appearance.backgroundColor = .white
+    appearance.shadowColor = .clear
+    appearance.shadowImage = UIImage()
+  
+    appearance.titleTextAttributes = [.foregroundColor: UIColor.darkText]
+    navigationItem.standardAppearance = appearance
+    navigationItem.scrollEdgeAppearance = appearance
+    navigationItem.compactAppearance = appearance
+    
+    let buttonAppearance = UIBarButtonItemAppearance()
+    buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.darkText]
+    
+    navigationItem.standardAppearance?.buttonAppearance = buttonAppearance
+ 
+    if let navigationBar = self.navigationController?.navigationBar {
+      let standardAppearance = UINavigationBarAppearance()
+      standardAppearance.configureWithOpaqueBackground()
+      standardAppearance.backgroundImage = nil
+
+      let compactAppearance = standardAppearance.copy()
+      compactAppearance.backgroundImage = nil
+      
+      navigationBar.standardAppearance = standardAppearance
+      navigationBar.scrollEdgeAppearance = standardAppearance
+      navigationBar.compactAppearance = compactAppearance
+    }
   }
 }
