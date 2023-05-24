@@ -71,7 +71,7 @@ class GitHubUserListViewModelTests: XCTestCase {
   
   func testFetchGitHubUsers_Failure_BadAPIRequest() {
     // Given
-    let errorMessage = APIError.badAPIRequest.localizedDescription
+    let errorMessage = APIError.badAPIRequest.description
     
     let mockGitHubUsersPromise = Promise<GitHubUsers> { seal in
       seal.reject(APIError.badAPIRequest)
@@ -98,7 +98,7 @@ class GitHubUserListViewModelTests: XCTestCase {
   
   func testFetchGitHubUsers_Failure_NoInternetConnection() {
     // Given
-    let errorMessage = APIError.noInternetConnection.localizedDescription
+    let errorMessage = APIError.noInternetConnection.description
     
     let mockGitHubUsersPromise = Promise<GitHubUsers> { seal in
       seal.reject(APIError.noInternetConnection)
@@ -125,7 +125,7 @@ class GitHubUserListViewModelTests: XCTestCase {
   
   func testFetchGitHubUsers_Failure_Unknown() {
     // Given
-    let errorMessage = APIError.unknown.localizedDescription
+    let errorMessage = APIError.unknown.description
     
     let mockGitHubUsersPromise = Promise<GitHubUsers> { seal in
       seal.reject(APIError.unknown)
@@ -181,7 +181,7 @@ class GitHubUserListViewModelTests: XCTestCase {
   func testFetchGitHubUser_Failure_DataNotFound() {
     // Given
     let login = "guilhermeprats"
-    let errorMessage = APIError.dataNotFound.localizedDescription
+    let errorMessage = APIError.dataNotFound.description
     
     let mockGitHubUserPromise = Promise<GitHubUser> { seal in
       seal.reject(APIError.dataNotFound)
@@ -209,7 +209,7 @@ class GitHubUserListViewModelTests: XCTestCase {
   func testFetchGitHubUser_Failure_BadAPIRequest() {
     // Given
     let login = "guilhermeprates"
-    let errorMessage = APIError.badAPIRequest.localizedDescription
+    let errorMessage = APIError.badAPIRequest.description
     
     let mockGitHubUserPromise = Promise<GitHubUser> { seal in
       seal.reject(APIError.badAPIRequest)
@@ -237,7 +237,7 @@ class GitHubUserListViewModelTests: XCTestCase {
   func testFetchGitHubUser_Failure_NoInternetConnection() {
     // Given
     let login = "guilhermeprates"
-    let errorMessage = APIError.noInternetConnection.localizedDescription
+    let errorMessage = APIError.noInternetConnection.description
     
     let mockGitHubUserPromise = Promise<GitHubUser> { seal in
       seal.reject(APIError.noInternetConnection)
@@ -265,7 +265,7 @@ class GitHubUserListViewModelTests: XCTestCase {
   func testFetchGitHubUser_Failure_Unknown() {
     // Given
     let login = "guilhermeprates"
-    let errorMessage = APIError.unknown.localizedDescription
+    let errorMessage = APIError.unknown.description
     
     let mockGitHubUserPromise = Promise<GitHubUser> { seal in
       seal.reject(APIError.unknown)

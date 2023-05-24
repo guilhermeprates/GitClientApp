@@ -78,7 +78,7 @@ class GitHubUserViewModelTests: XCTestCase {
   
   func testFetchGitHubRepositories_Failure_BadAPIRequest() {
     // Given
-    let errorMessage = APIError.badAPIRequest.localizedDescription
+    let errorMessage = APIError.badAPIRequest.description
     
     let mockGitHubRepositoriesPromise = Promise<GitHubRepositories> { seal in
       seal.reject(APIError.badAPIRequest)
@@ -105,7 +105,7 @@ class GitHubUserViewModelTests: XCTestCase {
   
   func testFetchGitHubRepositories_Failure_NoInternetConnection() {
     // Given
-    let errorMessage = APIError.noInternetConnection.localizedDescription
+    let errorMessage = APIError.noInternetConnection.description
     
     let mockGitHubRepositoriesPromise = Promise<GitHubRepositories> { seal in
       seal.reject(APIError.noInternetConnection)
@@ -132,7 +132,7 @@ class GitHubUserViewModelTests: XCTestCase {
   
   func testFetchGitHubRepositories_Failure_Unknown() {
     // Given
-    let errorMessage = APIError.unknown.localizedDescription
+    let errorMessage = APIError.unknown.description
     
     let mockGitHubRepositoriesPromise = Promise<GitHubRepositories> { seal in
       seal.reject(APIError.unknown)
