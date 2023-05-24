@@ -53,27 +53,34 @@ final class GitHubUserListViewModel {
   
   func fetchGitHubUsers() {
     isLoading = true
-    apiService.fetchUsers().done { users in
-      self.users = users
-      self.errorMessage = nil
-    }.catch { error in
-      self.errorMessage = error.localizedDescription
-    }.finally {
-      self.isLoading = false
+    apiService.fetchUsers().done { [weak self] users in
+      self?.users = users
+      self?.errorMessage = nil
+    }.catch { [weak self] error in
+      self?.errorMessage = self?.handleAPIError(error: error)
+    }.finally { [weak self] in
+      self?.isLoading = false
     }
   }
   
   func fetchGitHubUser(with login: String) {
     isLoading = true
-    apiService.fetchUser(with: login).done { user in
-      self.users = [ user ]
-      self.errorMessage = nil
-    }.catch { error in
-      self.users = []
-      self.errorMessage = error.localizedDescription
-    }.finally {
-      self.isLoading = false
+    apiService.fetchUser(with: login).done { [weak self] user in
+      self?.users = [ user ]
+      self?.errorMessage = nil
+    }.catch { [weak self] error in
+      self?.users = []
+      self?.errorMessage = self?.handleAPIError(error: error)
+    }.finally { [weak self] in
+      self?.isLoading = false
     }
+  }
+  
+  private func handleAPIError(error: Error) -> String {
+    guard let error = error as? APIError else {
+      return error.localizedDescription
+    }
+    return error.description
   }
   
   // MARK: - Data Access

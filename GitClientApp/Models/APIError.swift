@@ -14,3 +14,21 @@ enum APIError: Error {
   case unknown
   case invalidURL
 }
+
+extension APIError {
+  
+  var description: String {
+    switch self {
+    case .noInternetConnection:
+      return "Sem conexão com a Internet."
+    case .badAPIRequest:
+      return "Erro na requisição."
+    case .dataNotFound:
+      return "Informação não encontrada."
+    case .unknown:
+      return "Erro desconhecido."
+    case .invalidURL:
+      return "URL inválida."
+    }
+  }
+}

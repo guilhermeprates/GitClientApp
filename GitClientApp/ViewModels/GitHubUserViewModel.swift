@@ -64,14 +64,21 @@ final class GitHubUserViewModel {
   
   func fetchGitHubRepositories() {
     isLoading = true
-    apiService.fetchRepositories(for: user.login).done { repositories in
-      self.repositories = repositories
-      self.errorMessage = nil
-    }.catch { error in
-      self.errorMessage = error.localizedDescription
-    }.finally {
-      self.isLoading = false
+    apiService.fetchRepositories(for: user.login).done { [weak self] repositories in
+      self?.repositories = repositories
+      self?.errorMessage = nil
+    }.catch { [weak self] error in
+      self?.errorMessage = self?.handleAPIError(error: error)
+    }.finally { [weak self] in
+      self?.isLoading = false
     }
+  }
+  
+  private func handleAPIError(error: Error) -> String {
+    guard let error = error as? APIError else {
+      return error.localizedDescription
+    }
+    return error.description
   }
   
   // MARK: - Data Access
